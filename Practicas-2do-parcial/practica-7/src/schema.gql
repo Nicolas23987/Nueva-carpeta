@@ -1,0 +1,83 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Estudiante"""
+type Estudiante {
+  id: Int!
+  nombre: String!
+  identificacion: String!
+  controles: [ControlIdioma]!
+}
+
+"""Idioma"""
+type Idioma {
+  id: Int!
+  descripcion: String!
+  controles: [ControlIdioma]!
+}
+
+"""Control de idioma"""
+type ControlIdioma {
+  id: Int!
+  estudiante: Estudiante!
+  idioma: Idioma!
+  porcentajeLectura: Int!
+  porcentajeEscritura: Int!
+  porcentajeEscucharHablar: Int!
+}
+
+type Query {
+  controlIdioma(id: Int!): ControlIdioma!
+  idioma(id: Int!): Idioma!
+  estudiante(id: Int!): Estudiante!
+}
+
+type Mutation {
+  createControlIdioma(createControlIdiomaInput: CreateControlIdiomaInput!): ControlIdioma!
+  updateControlIdioma(updateControlIdiomaInput: UpdateControlIdiomaInput!): ControlIdioma!
+  removeControlIdioma(id: Int!): ControlIdioma!
+  createIdioma(createIdiomaInput: CreateIdiomaInput!): Idioma!
+  updateIdioma(updateIdiomaInput: UpdateIdiomaInput!): Idioma!
+  removeIdioma(id: Int!): Idioma!
+  createEstudiante(createEstudianteInput: CreateEstudianteInput!): Estudiante!
+  updateEstudiante(updateEstudianteInput: UpdateEstudianteInput!): Estudiante!
+  removeEstudiante(id: Int!): Estudiante!
+}
+
+input CreateControlIdiomaInput {
+  estudianteId: Int!
+  idiomaId: Int!
+  porcentajeLectura: Float!
+  porcentajeEscritura: Float!
+  porcentajeEscucharHablar: Float!
+}
+
+input UpdateControlIdiomaInput {
+  estudianteId: Int
+  idiomaId: Int
+  porcentajeLectura: Float
+  porcentajeEscritura: Float
+  porcentajeEscucharHablar: Float
+  id: Int!
+}
+
+input CreateIdiomaInput {
+  descripcion: String!
+}
+
+input UpdateIdiomaInput {
+  descripcion: String
+  id: Int!
+}
+
+input CreateEstudianteInput {
+  nombre: String!
+  identificacion: String!
+}
+
+input UpdateEstudianteInput {
+  nombre: String
+  identificacion: String
+  id: Int!
+}

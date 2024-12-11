@@ -1,0 +1,40 @@
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: sistema_gimnasio
+#   username: postgres
+#   password: 123123
+#   host: localhost
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: web
+  pool: 5
+  username: root
+  password: 
+  host: localhost
+
+
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: sistema_gimnasio
+#   username: postgres
+#   password: 123123
+#   host: localhost
+
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: sistema_gimnasio
+#   username: postgres
+#   password: 123123
+#   host: localhost
+
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: sistema_siscripciones
+#   username: localhost
+#   password: <%= ENV['123123'] %>
+#   host: localhost

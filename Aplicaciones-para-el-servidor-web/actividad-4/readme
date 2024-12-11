@@ -1,0 +1,40 @@
+
+
+POST
+URL
+http://localhost:3000/api/registro
+
+Body
+{
+    "nombre": "usuario",
+    "clave": "123123"
+}
+
+
+
+
+POST
+URL:
+http://localhost:3000/api/login
+
+Body:
+{
+  "nombre": "usuario",
+  "clave": "123123"
+}
+
+
+
+
+Para entrar a la ruta protegida
+hay que usar el token proporcionado
+luego de iniciar session 
+
+GET
+
+URl:
+http://localhost:3000/api/ruta-protegida
+
+header: Authorization 
+value: Bearer <TOKEN>
+

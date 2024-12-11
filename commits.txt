@@ -1,0 +1,103 @@
+primer commit (todo el dia)
+
+git add .
+$env:GIT_COMMITTER_DATE = "2024-10-29 $(Get-Random -Minimum 0 -Maximum 24):$(Get-Random -Minimum 0 -Maximum 60):$(Get-Random -Minimum 0 -Maximum 60)"; $env:GIT_AUTHOR_DATE = "2024-10-29 $(Get-Random -Minimum 0 -Maximum 24):$(Get-Random -Minimum 0 -Maximum 60):$(Get-Random -Minimum 0 -Maximum 60)"; git commit -m "Practica-5" --no-edit
+git push --set-upstream origin main
+
+segundo (hasta el 11 a las 2)
+
+git add .
+$env:GIT_COMMITTER_DATE = "2024-11-11 $(Get-Random -Minimum 0 -Maximum 14):$(Get-Random -Minimum 0 -Maximum 60):$(Get-Random -Minimum 0 -Maximum 60)"; $env:GIT_AUTHOR_DATE = "2024-11-11 $(Get-Random -Minimum 0 -Maximum 14):$(Get-Random -Minimum 0 -Maximum 60):$(Get-Random -Minimum 0 -Maximum 60)"; git commit -m "Practica-6" --no-edit
+git push --set-upstream origin main
+
+tercero (hasta el 21 3:00)
+
+git add .
+$env:GIT_COMMITTER_DATE = "2024-11-21 $(Get-Random -Minimum 0 -Maximum 14):$(Get-Random -Minimum 0 -Maximum 60):$(Get-Random -Minimum 0 -Maximum 60)"; $env:GIT_AUTHOR_DATE = "2024-11-21 $(Get-Random -Minimum 0 -Maximum 14):$(Get-Random -Minimum 0 -Maximum 60):$(Get-Random -Minimum 0 -Maximum 60)"; git commit -m "Practica-7" --no-edit
+git push --set-upstream origin main
+
+
+Cuarto (hasta el 28 a las 2)
+
+git add .
+$env:GIT_COMMITTER_DATE = "2024-11-28 $(Get-Random -Minimum 0 -Maximum 14):$(Get-Random -Minimum 0 -Maximum 60):$(Get-Random -Minimum 0 -Maximum 60)"; $env:GIT_AUTHOR_DATE = "2024-11-28 $(Get-Random -Minimum 0 -Maximum 14):$(Get-Random -Minimum 0 -Maximum 60):$(Get-Random -Minimum 0 -Maximum 60)"; git commit -m "Practica-8" --no-edit
+git push --set-upstream origin main
+
+
+Quinto (hasta el 4 a las 12:30)
+
+git add .
+git push --set-upstream origin main$env:GIT_COMMITTER_DATE = "2024-12-04 $(Get-Random -Minimum 0 -Maximum 34):$(Get-Random -Minimum 0 -Maximum 30):$(Get-Random -Minimum 0 -Maximum 30)"; $env:GIT_AUTHOR_DATE = "2024-12-04 $(Get-Random -Minimum 0 -Maximum 11):$(Get-Random -Minimum 0 -Maximum 30):$(Get-Random -Minimum 0 -Maximum 60)"; git commit -m "Practica-9" --no-edit
+git push --set-upstream origin main
+
+
+
+credenciales
+
+git config --global user.name Andyppz29
+git config --global user.email e1726847518@live.uleam.edu.ec
+
+
+
+git config --global user.name JohnJCVC
+git config --global user.email johnvincescevallos@gmail.com
+
+
+
+
+git rebase -i 437de6acef8ffe843ea4636de9245ddfc15d3cbf
+# Change 'pick' to 'edit' for the commit
+GIT_AUTHOR_DATE="2024-10-29T12:00:00" GIT_COMMITTER_DATE="2024-10-29T12:00:00" git commit --amend --no-edit --date "2024-10-29T12:00:00"
+git rebase --continue
+git push --force
+
+
+
+
+
+
+import { Module } from '@nestjs/common';
+import { GraphQLModule } from '@nestjs/graphql';
+import { ApolloServerExpressConfig } from 'apollo-server-express';
+import { ApolloGateway } from '@apollo/gateway';
+
+@Module({
+  imports: [
+    GraphQLModule.forRootAsync({
+      useFactory: async () => {
+        return {
+          // Apollo Server Configuration
+          autoSchemaFile: 'schema.gql',
+          context: ({ req }) => ({ headers: req.headers }),
+          playground: true,
+        } as ApolloServerExpressConfig;
+      },
+    }),
+
+    // If you're using Apollo Gateway
+    GraphQLModule.forRootAsync({
+      useFactory: async () => {
+        return {
+          gateway: new ApolloGateway({
+            serviceList: [
+              { name: 'service1', url: 'http://service1/graphql' },
+              { name: 'service2', url: 'http://service2/graphql' },
+            ],
+          }),
+          server: {
+            // Gateway-specific config
+            cors: {
+              origin: '*',
+              credentials: true,
+            },
+          },
+        };
+      },
+    }),
+  ],
+})
+export class AppModule {}
+
+
+
+

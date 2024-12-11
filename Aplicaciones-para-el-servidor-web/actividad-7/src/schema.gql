@@ -1,0 +1,84 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Paciente {
+  nombre: String!
+  identificacion: String!
+}
+
+type SignoVital {
+  descripcion: String!
+  nivelMinimo: Float!
+  nivelMaximo: Float!
+}
+
+type ControlRealizado {
+  pacienteId: Float!
+  signoVitalId: Float!
+  fecha: String!
+  hora: String!
+  valor: Float!
+  paciente: Paciente!
+  signoVital: SignoVital!
+}
+
+type Query {
+  paciente(id: Int!): Paciente!
+  signoVital(id: Int!): SignoVital!
+  controlesRealizados: [ControlRealizado!]!
+  controlRealizado(id: Int!): ControlRealizado!
+}
+
+type Mutation {
+  createPaciente(createPacienteInput: CreatePacienteInput!): Paciente!
+  updatePaciente(updatePacienteInput: UpdatePacienteInput!): Paciente!
+  removePaciente(id: Int!): Paciente!
+  createSignoVital(createSignoVitalInput: CreateSignoVitalInput!): SignoVital!
+  updateSignoVital(updateSignoVitalInput: UpdateSignoVitalInput!): SignoVital!
+  removeSignoVital(id: Int!): SignoVital!
+  createControlRealizado(createControlRealizadoInput: CreateControlRealizadoInput!): ControlRealizado!
+  updateControlRealizado(updateControlRealizadoInput: UpdateControlRealizadoInput!): ControlRealizado!
+  removeControlRealizado(id: Int!): ControlRealizado!
+}
+
+input CreatePacienteInput {
+  nombre: String!
+  identificacion: String!
+}
+
+input UpdatePacienteInput {
+  nombre: String
+  identificacion: String
+  id: Int!
+}
+
+input CreateSignoVitalInput {
+  descripcion: String!
+  nivelMinimo: Float!
+  nivelMaximo: Float!
+}
+
+input UpdateSignoVitalInput {
+  descripcion: String
+  nivelMinimo: Float
+  nivelMaximo: Float
+  id: Int!
+}
+
+input CreateControlRealizadoInput {
+  pacienteId: Float!
+  signoVitalId: Float!
+  fecha: String!
+  hora: String!
+  valor: Float!
+}
+
+input UpdateControlRealizadoInput {
+  pacienteId: Float
+  signoVitalId: Float
+  fecha: String
+  hora: String
+  valor: Float
+  id: Int!
+}
